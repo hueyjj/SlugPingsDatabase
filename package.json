@@ -5,9 +5,7 @@
   "dependencies": {
     "concurrently": "^3.5.1",
     "express": "^4.16.2",
-    "nodemon": "^1.14.11",
-    "redis": "^2.8.0",
-    "redux": "^3.7.2"
+    "redis": "^2.8.0"
   },
   "scripts": {
     "start": "node server.js"
