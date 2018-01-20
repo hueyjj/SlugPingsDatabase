@@ -13,6 +13,10 @@ app.get('/api/hello', (req, res) => {
   res.send({ express: 'Hello From Express' });
 });
 
+app.post("/api/marker", (req, res) => {
+  res.send({ msg: "Got your post " + req.body});
+});
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
