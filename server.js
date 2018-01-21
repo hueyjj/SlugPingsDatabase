@@ -9,12 +9,12 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/api/hello', (req, res) => {
+app.get('/api/storage', (req, res) => {
   res.send({ express: 'Hello From Express' });
 });
 
 app.post("/api/marker", (req, res) => {
-  res.send({ msg: "Got your post " + req.body});
+  res.send({ msg: "Got your post " + req.body.marker.x});
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
