@@ -20,19 +20,19 @@ app.use(function (req, res, next) {
 });
 
 app.get('/api/storage', (req, res) => {
-    res.send({ express: 'Hello From Express' });
-    client.get("foo", function(err, reply) {
-        console.log(reply);
+    let f = {};
+    client.lrange("marks", 0, -1, function(err, reply) {
+        res.send(reply);
     });
+    //res.send(f);
 });
 
 app.post("/api/marker", (req, res) => {
-    console.log(req.body);
 
-    res.send({ msg: "Got your post"});
+    res.send({ msg: "Got your post " + JSON.stringify(req.body)});
     res.end(JSON.stringify(req.body, null, 2))
 
-    client.set("foo", req.body.toString());
+    client.rpush(["marks", JSON.stringify(req.body)]);
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
